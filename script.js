@@ -1,22 +1,17 @@
 const placeholderDiv = document.querySelector("#placeholder");
 
-const button1 = document.createElement("button");
-button1.textContent = "Red";
-placeholderDiv.appendChild(button1);
-button1.addEventListener("click", ()=>{
-    document.querySelector("main").style.color = "red";
-});
+const colorsArray = ["red", "green", "blue", "orange", "yellow", "maroon", "pink"];
 
-const button2 = document.createElement("button");
-button2.textContent = "Green";
-placeholderDiv.appendChild(button2);
-button2.addEventListener("click", ()=>{
-    document.querySelector("main").style.color = "green";
-});
+for (let i = 0; i < colorsArray.length; i++){
+    const tempButton = document.createElement("button");
+    tempButton.textContent = `${colorsArray[i][0].toUpperCase()}${colorsArray[i].slice(1)}`;
+    placeholderDiv.appendChild(tempButton);
+    tempButton.addEventListener("click", ()=>{
+        document.querySelector("main").style.color = colorsArray[i];
+    });
+}
 
-const button3 = document.createElement("button");
-button3.textContent = "Blue";
-placeholderDiv.appendChild(button3);
-button3.addEventListener("click", ()=>{
-    document.querySelector("main").style.color = "blue";
-});
+
+//Hunter hates repetitious code
+//Fix this code so that it doesn't repeat the button stuff
+//3 times? I want only once!
