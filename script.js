@@ -2,14 +2,15 @@ const placeholderDiv = document.querySelector("#placeholder");
 
 const colorsArray = ["red", "green", "blue", "orange", "yellow", "maroon", "pink"];
 
-for (let i = 0; i < colorsArray.length; i++){
-    const tempButton = document.createElement("button");
-    tempButton.textContent = `${colorsArray[i][0].toUpperCase()}${colorsArray[i].slice(1)}`;
-    placeholderDiv.appendChild(tempButton);
-    tempButton.addEventListener("click", ()=>{
-        document.querySelector("main").style.color = colorsArray[i];
-    });
-}
+let currentColorIndex = 0;
+const colorButton = document.createElement("button");
+colorButton.textContent = `Toggle Colors`;
+placeholderDiv.appendChild(colorButton);
+colorButton.addEventListener("click", ()=>{
+    document.querySelector("main").style.color = colorsArray[currentColorIndex++ % colorsArray.length];
+});
+
+//Modulus is really neat
 
 
 //Hunter hates repetitious code
